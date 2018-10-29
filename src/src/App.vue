@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <top-nav-bar/>
-      <side-bar-and-content-section></side-bar-and-content-section>
+      <side-bar-and-content-section/>
   </div>
 </template>
 
