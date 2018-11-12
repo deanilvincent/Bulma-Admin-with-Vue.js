@@ -18,27 +18,45 @@
             </div>
 
             <div class="navbar-end">
-                <a class="navbar-item">
-                    Home
-                </a>
                 <div class="navbar-item">
                     <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                    <img src="../../assets/logo.png" />
-                        Welcome User!
-                    </a>
+                        <a class="navbar-link">
+                            UI Features
+                        </a>
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Profile
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Logout
-                        </a>
+                        <div class="navbar-dropdown">
+                            <router-link to="/ui-features/button" class="navbar-item">
+                                Buttons
+                            </router-link>
+                            <router-link to="/ui-features/form" class="navbar-item">
+                                Form
+                            </router-link>
+                            <a class="navbar-item">
+                                Typography
+                            </a>
+                            <a class="navbar-item">
+                                Icons
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="navbar-item">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                        <img src="../../assets/logo.png" />
+                            Welcome User!
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Profile
+                            </a>
+                            <a class="navbar-item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

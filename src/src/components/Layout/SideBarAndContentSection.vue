@@ -3,7 +3,10 @@
     <div :class="sideBarClass">
         <ul>
             <li><a href="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-desktop"></i><span>UI Features</span></a></li>
+            <li><a href="#">
+                <i class="fa fa-desktop"></i><span>UI Features</span>
+                </a>
+            </li>
             <li><a href="#"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
             <li><a href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a></li>
             <li><a href="#"><i class="fa fa-table"></i><span>Data Table</span></a></li>
