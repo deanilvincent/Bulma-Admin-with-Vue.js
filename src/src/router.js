@@ -6,6 +6,11 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import UiFeatures from './views/UiFeatures'
 
+// components
+import UiFeatureHome from './components/UiFeatures/UiFeatureHome'
+import UiFeatureButton from './components/UiFeatures/UiFeatureButton'
+import UiFeatureForm from './components/UiFeatures/UiFeatureForm'
+
 Vue.use(Router)
 
 export default new Router({
@@ -27,8 +32,25 @@ export default new Router({
     },
     {
       path: '/ui-features',
-      name: 'ui features',
-      component: UiFeatures
+      name: 'Ui',
+      component: UiFeatures,
+      children:[
+        {
+          path: '',
+          name: 'Ui Home',
+          component: UiFeatureHome
+        },
+        {
+          path: 'button',
+          name: 'Ui Button',
+          component: UiFeatureButton
+        },
+        {
+          path: 'form',
+          name: 'Ui Form',
+          component: UiFeatureForm
+        }
+      ]
     }
   ]
 })
