@@ -197,7 +197,18 @@
       <div class="tile is-8 is-parent">
         <div class="tile is-child box">
           <p class="title is-6">Cleave.js</p>
-          <p>Format your `<input />`</p>
+          <label class="label">Credit Card #</label>
+          <div class="field">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="#### #### #### ####" v-cleave="masks.creditCard">
+              <span class="icon is-small is-left">
+                <i class="fa fa-credit-card"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -205,5 +216,47 @@
 </template>
 
 <script>
-export default {}
+import Cleave from '../../../node_modules/cleave.js/dist/cleave.min.js'
+
+const cleave = {
+  name: 'cleave',
+  bind(el, binding) {
+    const input = el.querySelector('input')
+    input._vCleave = new Cleave(input, binding.value)
+  },
+  update(el, binding) {
+    const input = el.querySelector('input')
+    input._vCleave.destroy()
+    input._vCleave = new Cleave(input, binding.value)
+  },
+  unbind(el) {
+    const input = el.querySelector('input')
+    input._vCleave.destroy()
+  }
+}
+
+export default {
+  directives: { cleave },
+  data() {
+    return {
+      masks: {
+        creditCard: { creditCard: true },
+        numeral: {
+          numeral: true,
+          numeralThousandsGroupStyle: 'thousand',
+          prefix: '$ '
+        },
+        custom: {
+          delimiters: ['.', '.', '-'],
+          blocks: [3, 3, 3, 2],
+          numericOnly: true
+        },
+        datePattern: {
+          date: true,
+          datePattern: ['m', 'y']
+        }
+      }
+    }
+  }
+}
 </script>

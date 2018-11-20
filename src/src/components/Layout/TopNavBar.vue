@@ -2,21 +2,17 @@
     <nav class="navbar is-white" id="navbarStyle" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </a>
         </div>
 
         <div class="navbar-menu">
-            <div class="navbar-start">
-            
-            </div>
-
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -43,7 +39,7 @@
                 <div class="navbar-item">
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
-                        <img src="../../assets/logo.png" />
+                            <img src="../../assets/logo.png" />
                             Welcome User!
                         </a>
 
@@ -63,16 +59,16 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style>
-#navbarStyle{
-    -webkit-box-shadow: 0px 1px 5px #ccc;
-    -moz-box-shadow: 0px 1px 5px #ccc;
-    box-shadow: 0px 1px 5px #ccc;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+#navbarStyle {
+  -webkit-box-shadow: 0px 1px 5px #ccc;
+  -moz-box-shadow: 0px 1px 5px #ccc;
+  box-shadow: 0px 1px 5px #ccc;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 </style>
