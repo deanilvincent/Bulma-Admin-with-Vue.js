@@ -4,11 +4,17 @@
       <ul>
         <li><a href="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
         <li>
-          <a href="#" class="dropdown-btn">
+          <a
+            href="#"
+            class="dropdown-btn"
+          >
             <i class="fa fa-desktop"></i>
             <span>Dropdown
             </span>
-            <i id="caretId" class="fa fa-caret-down"></i>
+            <i
+              id="caretId"
+              class="fa fa-caret-down"
+            ></i>
           </a>
           <div class="dropdown-container">
             <a href="#">Link 1</a>
@@ -37,7 +43,6 @@
         <li><a href="#"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
         <li><a href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a></li>
         <li><a href="#"><i class="fa fa-table"></i><span>Data Table</span></a></li>
-        <li><a href="#" @click="openAndCloseSideBar"><i class="fa fa-arrows-h"></i><span>Close Sidebar</span></a></li>
       </ul>
     </div>
     <!-- Content -->
@@ -60,6 +65,8 @@
 </style>
 
 <script>
+import {mapState,mapActions} from 'vuex'
+
 export default {
   mounted() {
     var dropdown = document.getElementsByClassName('dropdown-btn')
@@ -95,23 +102,39 @@ export default {
       })
     }
   },
+  computed:{
+    ...mapState("topandsidebar",{
+    isOpenAndCloseSidebar: state=>state.isOpenAndCloseSidebar
+    })
+  },
   data() {
-    return {
-      sideBarClass: 'sidebar active',
-      mainClass: 'main active'
+    return{
+      sideBarClass: "",
+      mainClass: "",
     }
   },
   methods: {
-    openAndCloseSideBar() {
-      if (
+    ...mapActions("topandsidebar",[
+      "openAndCloseSideBar"
+    ]),
+    sidebarEvent(){
+    if (
         this.sideBarClass === 'sidebar active' &&
         this.mainClass === 'main active'
       ) {
         this.sideBarClass = 'sidebar'
         this.mainClass = 'main'
+        this.openAndCloseSideBar({
+          sideBarClass: "sidebar",
+          mainClass: "main"
+        })
       } else {
         this.sideBarClass = 'sidebar active'
-        this.mainClass = 'main active'
+        this.mainClass =   'main active'
+        this.openAndCloseSideBar({
+          sideBarClass: "sidebar active",
+          mainClass: "main active"
+        })
       }
     },
     windowSizeTrigger() {
@@ -135,6 +158,13 @@ export default {
     }
     window.addEventListener('resize', this.windowSizeTrigger)
     this.windowSizeTrigger()
+  },
+  watch:{
+    isOpenAndCloseSidebar(){
+      if(this.isOpenAndCloseSidebar){
+        this.sidebarEvent();
+      }
+    }
   }
 }
 </script>
