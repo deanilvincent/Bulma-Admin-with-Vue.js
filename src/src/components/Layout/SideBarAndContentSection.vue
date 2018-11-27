@@ -16,7 +16,7 @@
               class="fa fa-caret-down"
             ></i>
           </a>
-          <div class="dropdown-container">
+          <div :style="dropdownContainerStyle" :class="dropdownContainerClass">
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
@@ -111,6 +111,8 @@ export default {
     return{
       sideBarClass: "",
       mainClass: "",
+      dropdownContainerClass: "dropdown-container",
+      dropdownContainerStyle: ""
     }
   },
   methods: {
@@ -135,6 +137,11 @@ export default {
           sideBarClass: "sidebar active",
           mainClass: "main active"
         })
+      }
+      if(this.sideBarClass === "sidebar"){
+        this.dropdownContainerStyle = "display: none"
+      }else{
+        this.dropdownContainerStyle = ""
       }
     },
     windowSizeTrigger() {
